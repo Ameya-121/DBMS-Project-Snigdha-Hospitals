@@ -6,6 +6,7 @@
 
 - Spring Boot
 - JDBC (Java Database Connectivity)
+- Java 20
 - Thymeleaf
 - MySQL
 
