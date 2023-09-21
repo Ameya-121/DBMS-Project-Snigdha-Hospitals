@@ -2,21 +2,25 @@ package com.snigdha.snigdhahospitals;
 
 // import javax.swing.tree.RowMapper;
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 // import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+// import org.springframework.jdbc.core.RowMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.stereotype.Controller;
+// import org.springframework.stereotype.Controller;
 // import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+// import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 // import org.springframework.web.servlet.ModelAndView;
+
+import com.snigdha.snigdhahospitals.model.Doctor;
 
 // import ch.qos.logback.core.model.Model;
 
@@ -24,14 +28,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class controller {
 
 
-    // @Autowired
-    // JdbcTemplate jdbcTemplate;
+    @Autowired
+    JdbcTemplate jdbcTemplate;
 
-    // @GetMapping("/d")
-    // public List<String> doctordata(){
-        
-    // }
-    
+    @GetMapping("/d")
+    public ResponseEntity<List<Doctor>> getDoctors(){
+        List<Doctor> doctors = jdbcTemplate.query("SELECT * FROM USER", new BeanPropertyRowMapper<Doctor>(Doctor.class));
+        return new ResponseEntity<>(doctors,HttpStatus.OK);
+    }
     
 
     @RequestMapping("/")
