@@ -51,11 +51,11 @@ public class Doctor {
         this.slots = slots;
     }
 
-    public int getPhone(){
+    public long getPhone(){
         return phone;
     }
 
-    public void setPhone(int phone){
+    public void setPhone(long phone){
         this.phone = phone;
     }
 
@@ -65,7 +65,7 @@ public class Doctor {
     private String department;
     private int fees;
     private int slots;
-    private int phone;
+    private long phone;
 
 
 

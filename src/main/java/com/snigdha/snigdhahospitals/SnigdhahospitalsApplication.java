@@ -8,13 +8,19 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;
-import com.snigdha.snigdhahospitals.dao.UserDao;
+
+import com.snigdha.snigdhahospitals.dao.DoctorDao;
+import com.snigdha.snigdhahospitals.dao.PatientDao;
 
 @SpringBootApplication
 public class SnigdhahospitalsApplication implements CommandLineRunner{
 
+
     @Autowired
-    private UserDao userDao;
+    private DoctorDao doctorDao;
+
+    @Autowired
+    private PatientDao patientDao;
 
     public static void main(String[] args) {
         SpringApplication.run(SnigdhahospitalsApplication.class, args);
@@ -29,6 +35,8 @@ public class SnigdhahospitalsApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println(this.userDao.createTable());
+        System.out.println(this.doctorDao.createTable());
+        System.out.println(this.patientDao.createTable());
+
 	}
 }

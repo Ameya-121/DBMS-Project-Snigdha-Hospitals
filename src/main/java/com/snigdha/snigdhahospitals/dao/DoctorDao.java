@@ -5,20 +5,21 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserDao {
-    
+public class DoctorDao {
+
     @Autowired
     private JdbcTemplate jdbcTemplate; 
 
-    public UserDao(){
+    public DoctorDao(){
 
     }
 
     // table creation
     public int createTable(){
-        String query="CREATE TABLE IF NOT EXISTS Blabla(id int primary key,name varchar(200),age int,city varchar(100) )";
+        String query="CREATE TABLE IF NOT EXISTS doctor(id int primary key ,name varchar(200),department varchar(100),qualification varchar(100),dob date,slots int,fees int,phone bigint)";
         int update = this.jdbcTemplate.update(query);
         System.out.println("Contructor called !"+ update);
         return update;  
     }
+    
 }
