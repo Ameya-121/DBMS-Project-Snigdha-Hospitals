@@ -67,7 +67,7 @@ public class controller {
         return mv;
     }
 
-    @RequestMapping("/login")
+    @RequestMapping("/login1")
     public ModelAndView login(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("login");
