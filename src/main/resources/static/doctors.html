@@ -33,12 +33,10 @@
 
     <ul>
         <li class="doctoritem">
-            <div class="doctor">
+            <div id="doctordata" class="doctor">
                 <div>
                 <h4>Doctor Name</h4>
                 <h5>Category</h5>
-                <h5>Time</h5>
-                <h5>Experience in years</h5>
                 </div>
                 <div class="appprice">
                     <button>Book Appointment</button>
@@ -58,5 +56,32 @@
             <a class="navitems" href="./grievance">Grievance Redressal</a>
         </footer>
     </div>
+
+    <script>
+        fetch('http://localhost:8080/d')
+            .then(res => {
+                console.log(res);
+                return res.json();
+            }).then((objectData)=>{
+                console.log(objectData);
+                let tableData = "";
+                objectData.map((values)=>{
+                    tableData+= `
+                    <div>
+                        <h4>${values.name}</h4>
+                        <h5>${values.department}</h5>
+                        </div>
+                        <div class="appprice">
+                        <h6>${values.phone}</h6>
+                        <h5>${values.fees}</h5>
+                    </div>
+                    `
+                });
+                document.getElementById("doctordata").innerHTML=tableData;
+            })
+        
+    </script>
+
+
 </body>
 </html>
