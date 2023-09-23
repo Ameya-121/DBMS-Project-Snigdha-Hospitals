@@ -31,12 +31,12 @@
     </search>
     </div>
 
-    <ul>
-        <li class="doctoritem">
-            <div id="doctordata" class="doctor">
+    <!-- <ul> -->
+        <div class="doctoritem"  id="doctordata">
+            <div class="doctor">
                 <div>
                 <h4>Doctor Name</h4>
-                <h5>Category</h5>
+                <h6>Category</h6>
                 </div>
                 <div class="appprice">
                     <h6>Phone Number</h6>
@@ -44,8 +44,8 @@
                     <button>Book Appointment</button>
                 </div>
             </div>
-        </li>
-    </ul>
+        </div>
+    <!-- </ul> -->
 
 
 
@@ -67,14 +67,18 @@
                 let tableData = "";
                 objectData.map((values)=>{
                     tableData+= `
-                    <div>
-                        <h4>${values.name}</h4>
-                        <h5>${values.department}</h5>
+                    <div class="doctoritem">
+                        <div id="doctordata" class="doctor">
+                            <div>
+                            <h4>Dr. ${values.name}</h4>
+                            <h6>${values.department}</h6>
+                            </div>
+                            <div class="appprice">
+                            <h6>${values.phone}</h6>
+                            <h5>Rs ${values.fees}</h5>
+                            <button>Book Appointment</button>
+                            </div>
                         </div>
-                        <div class="appprice">
-                        <h6>${values.phone}</h6>
-                        <h5>Rs ${values.fees}</h5>
-                        <button>Book Appointment</button>
                     </div>
                     `
                 });
