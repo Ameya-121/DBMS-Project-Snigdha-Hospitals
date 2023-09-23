@@ -4,10 +4,12 @@
     justify-content: space-between;
     background-color: rgb(143, 255, 143);
     padding: 10px;
-    height: 40px;
+    height: 60px;
     top: 0px;
 }
-
+.navi{
+    width: 800px;
+}
 .title{
     font-size: larger;
     text-decoration: none;
