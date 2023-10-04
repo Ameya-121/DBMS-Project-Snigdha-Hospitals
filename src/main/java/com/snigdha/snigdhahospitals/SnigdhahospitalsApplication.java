@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;
 
+import com.snigdha.snigdhahospitals.dao.AppointmentDao;
 import com.snigdha.snigdhahospitals.dao.DoctorDao;
 import com.snigdha.snigdhahospitals.dao.PatientDao;
 
@@ -21,6 +22,9 @@ public class SnigdhahospitalsApplication implements CommandLineRunner{
 
     @Autowired
     private PatientDao patientDao;
+
+    @Autowired
+    private AppointmentDao appointmentDao;
 
     public static void main(String[] args) {
         SpringApplication.run(SnigdhahospitalsApplication.class, args);
@@ -37,6 +41,8 @@ public class SnigdhahospitalsApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
         System.out.println(this.doctorDao.createTable());
         System.out.println(this.patientDao.createTable());
+        System.out.println(this.appointmentDao.createTable());
+
 
 	}
 }

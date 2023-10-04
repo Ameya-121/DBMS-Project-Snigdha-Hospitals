@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 // import org.springframework.web.servlet.ModelAndView;
 
+import com.snigdha.snigdhahospitals.model.Appointment;
 import com.snigdha.snigdhahospitals.model.Doctor;
 
 // import ch.qos.logback.core.model.Model;
@@ -43,6 +44,12 @@ public class controller {
     public ResponseEntity<List<Doctor>> getDoctors(){
         List<Doctor> doctors = jdbcTemplate.query("SELECT * FROM doctor", new BeanPropertyRowMapper<Doctor>(Doctor.class));
         return new ResponseEntity<>(doctors,HttpStatus.OK);
+    }
+
+    @GetMapping("/a")
+    public ResponseEntity<List<Appointment>> getAppointments(){
+        List<Appointment> appointments = jdbcTemplate.query("SELECT * FROM appointment", new BeanPropertyRowMapper<Appointment>(Appointment.class));
+        return new ResponseEntity<List<Appointment>>(appointments,HttpStatus.OK);
     }
     
 

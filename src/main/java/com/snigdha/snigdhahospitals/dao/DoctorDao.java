@@ -18,7 +18,7 @@ public class DoctorDao {
     public int createTable(){
         String query="CREATE TABLE IF NOT EXISTS doctor(id int primary key ,name varchar(200),department varchar(100),qualification varchar(100),dob date,slots int,fees int,phone bigint)";
         int update = this.jdbcTemplate.update(query);
-        System.out.println("Contructor called !"+ update);
+        System.out.print("mr doctor");
         return update;  
     }
     
