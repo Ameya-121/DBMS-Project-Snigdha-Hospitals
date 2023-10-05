@@ -28,6 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.snigdha.snigdhahospitals.model.Appointment;
 import com.snigdha.snigdhahospitals.model.Doctor;
+import com.snigdha.snigdhahospitals.model.Patient;
 
 // import ch.qos.logback.core.model.Model;
 
@@ -50,6 +51,13 @@ public class controller {
     public ResponseEntity<List<Appointment>> getAppointments(){
         List<Appointment> appointments = jdbcTemplate.query("SELECT * FROM appointment", new BeanPropertyRowMapper<Appointment>(Appointment.class));
         return new ResponseEntity<List<Appointment>>(appointments,HttpStatus.OK);
+    }
+
+
+    @GetMapping("/p")
+    public ResponseEntity<List<Patient>> getPatients(){
+        List<Patient> patient = jdbcTemplate.query("SELECT * FROM patient", new BeanPropertyRowMapper<Patient>(Patient.class));
+        return new ResponseEntity<List<Patient>>(patient,HttpStatus.OK);
     }
     
 
