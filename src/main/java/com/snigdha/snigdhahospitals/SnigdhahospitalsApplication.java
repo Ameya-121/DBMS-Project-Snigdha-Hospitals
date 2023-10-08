@@ -42,7 +42,5 @@ public class SnigdhahospitalsApplication implements CommandLineRunner{
         System.out.println(this.doctorDao.createTable());
         System.out.println(this.patientDao.createTable());
         System.out.println(this.appointmentDao.createTable());
-
-
 	}
 }

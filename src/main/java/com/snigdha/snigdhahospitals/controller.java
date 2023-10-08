@@ -18,6 +18,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 // import org.springframework.jdbc.datasource.DriverManagerDataSource;
 // import org.springframework.jdbc.core.RowMapper;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 // import org.springframework.stereotype.Controller;
 // import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,6 +61,22 @@ public class controller {
         List<Patient> patient = jdbcTemplate.query("SELECT * FROM patient", new BeanPropertyRowMapper<Patient>(Patient.class));
         return new ResponseEntity<List<Patient>>(patient,HttpStatus.OK);
     }
+
+    @PostMapping("/signup") // This matches the form's action attribute
+    public String signupSubmit(@ModelAttribute Patient patient) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("home");
+        return mv;
+    }
+
+    @PostMapping("/login1") // This matches the form's action attribute
+    public String signupSubmit(@ModelAttribute Patient patient) {
+        
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("home");
+        return mv;
+    }
+    
     
 
     @RequestMapping("/")
