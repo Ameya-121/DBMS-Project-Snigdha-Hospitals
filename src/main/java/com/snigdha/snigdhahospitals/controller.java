@@ -4,6 +4,7 @@ package com.snigdha.snigdhahospitals;
 
 // import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale.Category;
 
 // import javax.sql.DataSource;
 
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 // import org.springframework.stereotype.Controller;
 // import org.springframework.web.bind.annotation.RequestMapping;
 // import org.springframework.web.bind.annotation.ResponseBody;
@@ -62,21 +64,11 @@ public class controller {
         return new ResponseEntity<List<Patient>>(patient,HttpStatus.OK);
     }
 
-    @PostMapping("/signup") // This matches the form's action attribute
-    public String signupSubmit(@ModelAttribute Patient patient) {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("home");
-        return mv;
+    @RequestMapping(path="/signup",method=RequestMethod.POST)
+        public String patient(){
+            return "login1";
     }
-
-    @PostMapping("/login1") // This matches the form's action attribute
-    public String signupSubmit(@ModelAttribute Patient patient) {
-        
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("home");
-        return mv;
-    }
-    
+   
     
 
     @RequestMapping("/")
