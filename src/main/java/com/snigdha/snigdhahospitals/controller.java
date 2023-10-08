@@ -34,7 +34,11 @@ import com.snigdha.snigdhahospitals.model.Appointment;
 import com.snigdha.snigdhahospitals.model.Doctor;
 import com.snigdha.snigdhahospitals.model.Patient;
 
+import ch.qos.logback.core.model.Model;
+
 // import ch.qos.logback.core.model.Model;
+
+
 
 
 
@@ -64,10 +68,11 @@ public class controller {
         return new ResponseEntity<List<Patient>>(patient,HttpStatus.OK);
     }
 
-    @RequestMapping(path="/signup",method=RequestMethod.POST)
-        public String patient(){
-            return "login1";
-    }
+    @PostMapping("/signup")
+    public String patientRegistration(@ModelAttribute Patient patient, Model model){
+        System.out.println(patient.getName());
+        return "login1";
+    }   
    
     
 
