@@ -1,4 +1,4 @@
-package com.snigdha.snigdhahospitals;
+package com.snigdha.snigdhahospitals.controller;
 
 // import javax.swing.tree.RowMapper;
 
